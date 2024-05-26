@@ -32,6 +32,7 @@ const typeDefs = `
   }
 
   type Movie {
+    id: ID!,
     plot: String!,
     genres: [String]!,
     runtime: Int!,
@@ -120,6 +121,7 @@ const typeDefs = `
   }
 
   type EmbeddedMovie {
+    id: ID!,
     plot: String!,
     genres: [String]!,
     runtime: Int!,
@@ -143,17 +145,28 @@ const typeDefs = `
     plot_embeddings: [Float]!,
   }
 
+  type Comment {
+    id: ID!,
+    name: String!,
+    email: String!,
+    movie_id: String!,
+    text: String!,
+    date: String!,
+  }
+
   type Query {
     findUserByEmail(email: String!): users,
     findUserByName(name: String!): users,
     findUsersCount: Int!
-    findTheaterById(theaterId: Int!): theaters,
-    getTheaterAddress(theaterId: Int!): Address,
+    findTheaterById(theaterId: String!): theaters,
+    getTheaterAddress(theaterId: String!): Address,
     findMovieById(movieId: String!): Movie,
     findMovieByTitle(title: String!): Movie,
     getMovies: [Movie],
     getEmbeddedMovies: [EmbeddedMovie],
     findEmbeddedMovieByTitle(title: String!): EmbeddedMovie,
+    findCommentById(commentId: String!): Comment,
+    findMovieByCommentId(commentId: String!): Movie,
   }
 `
 

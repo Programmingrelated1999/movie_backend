@@ -13,7 +13,7 @@ const movieResolvers = {
         },
         findMovieById: async (_, { movieId }) => {
             try {
-                const movie = await Movie.findOne({ movieId });
+                const movie = await Movie.findById( movieId );
                 return movie;
             } catch (error) {
                 console.error('Error getting movie by id:', error);

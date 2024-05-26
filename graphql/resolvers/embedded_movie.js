@@ -19,7 +19,7 @@ const embeddedMovieResolvers = {
                 console.error('Error getting embedded movie by title:', error);
                 throw new Error('Failed to get embedded movie by title');
             }
-        }
+        },
     }
 }
 
